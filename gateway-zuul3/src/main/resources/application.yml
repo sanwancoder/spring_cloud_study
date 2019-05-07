@@ -1,0 +1,26 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://user:pa123456@localhost:8762/eureka
+server:
+  port: '9903'
+spring:
+  application:
+    name: gateway-zuul
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+#前缀配置          
+zuul:
+  prefix: /movie
+  strip-prefix: false
+logging:
+  level:
+    com.netflix: debug
+
+#192.168.0.100:eureka-movie-comps:8092 , 192.168.0.100:eureka-movie-comps:8091
+

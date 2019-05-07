@@ -1,0 +1,23 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://user:pa123456@localhost:8762/eureka
+server:
+  port: '9902'
+spring:
+  application:
+    name: gateway-zuul
+zuul:
+   ignoredServices: "*"
+   routes:
+    movies:
+      path: /movie-info/**
+      serviceId: http://localhost:8092/
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+      
